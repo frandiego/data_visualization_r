@@ -1,19 +1,12 @@
 #####  clean up the environment & garbage collecor
 rm(list = ls())
 gc()
-
+source('utils.R')
 #####  load packages if installed, if not, install and load it
 packages <- c('data.table','ggplot2','purrr','scales','dplyr',
               'forcats','ggridges')
-invisible(sapply(packages, function(x) { 
-  if (x %in% rownames(installed.packages())){
-    library(x,character.only = T)
-  }else{
-    install.packages(x)
-    library(x)
-  }
-}))
-  
+require_install(pck = packages)
+
 
 # EXPLORATORY VS EXPLANATORY PLOTS ---------------------------------------------
 
