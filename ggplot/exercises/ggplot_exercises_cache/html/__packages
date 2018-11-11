@@ -1,0 +1,15 @@
+base
+knitr
+rmdformats
+data.table
+ggplot2
+purrr
+scales
+dplyr
+forcats
+ggridges
+kableExtra
+magrittr
+SparseM
+quantreg
+hexbin

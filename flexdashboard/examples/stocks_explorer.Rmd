@@ -1,0 +1,62 @@
+---
+title: "Stocks Explorer"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    social: menu
+    source_code: embed
+runtime: shiny
+---
+
+```{r global, include=FALSE}
+library(tidyquant)
+library(dygraphs)
+library(data.table)
+library(dplyr)
+library(magrittr)
+library(tbl2xts)
+
+symbols <- fread(file.path('..','data','ttr_stock_symbols.csv'))
+set_tickers <- unique(symbols$Symbol)
+set_names <- unique(symbols$Name)
+
+```
+
+Inputs {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+ selectInput(inputId = 'id_ticker',
+            choices = set_tickers,
+            selected = 'AAPL',
+            label = 'Ticker',
+            multiple = F,
+            selectize = T)
+```
+
+Outputs
+-----------------------------------------------------------------------
+
+### CandleStick
+
+```{r}
+  stock_ts <- reactive({
+    input$id_ticker %>% 
+      tolower() %>% 
+        tidyquant::tq_get()
+  })
+
+renderDygraph({
+    name = toupper(input$id_ticker)
+    stock_ts() %>% 
+      select(-volume,-adjusted) %>% 
+        group_by(date) %>%
+          mutate(mean = mean(open,high,low)) %>% 
+            tbl_xts() %>% 
+              dygraph(main = name) %>% 
+                   dyLegend(show = "always", hideOnMouseOut = FALSE) %>% 
+                      dyCandlestick() %>% 
+                          dyRangeSelector() 
+  })
+
+```
