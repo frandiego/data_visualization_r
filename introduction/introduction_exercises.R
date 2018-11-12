@@ -1,19 +1,15 @@
+
+# INTRO -------------------------------------------------------------------
+
+
 #####  clean up the environment & garbage collecor
 rm(list = ls())
 gc()
-
+source('utils.R')
 #####  load packages if installed, if not, install and load it
 packages <- c('data.table','ggplot2','purrr','scales','dplyr',
-              'forcats','ggridges','tidyr','stringr')
-invisible(sapply(packages, function(x) { 
-  if (x %in% rownames(installed.packages())){
-    library(x,character.only = T)
-  }else{
-    install.packages(x)
-    library(x)
-  }
-}))
-
+              'forcats','ggridges','lubridate','Hmisc','tidyr')
+require_install(pck = packages)
 
 
 
