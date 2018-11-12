@@ -2,14 +2,11 @@
 Data Visualization in R
 
 ## INTRODUCTION AND TIDY DATA
-[link](https://github.com/frandiego/datavizR/tree/master/introduction)
+[link](https://github.com/frandiego/data_visualization_r/tree/master/introduction)
 
 ## GGPLOT
-[link](https://github.com/frandiego/datavizR/tree/master/ggplot)
+[link](https://github.com/frandiego/data_visualization_r/tree/master/ggplot)
 
 ## SHINYDASHBOARD
-[link](https://github.com/frandiego/datavizR/tree/master/shinydashboard) 
-
-## FLEXDASHBOARD
-[link](https://github.com/frandiego/datavizR/tree/master/flexdashboard) 
+[link](https://github.com/frandiego/data_visualization_r/tree/master/shinydashboard)  
 
