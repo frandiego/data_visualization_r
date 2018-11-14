@@ -1,7 +1,4 @@
-
 # INTRO -------------------------------------------------------------------
-
-
 #####  clean up the environment & garbage collecor
 rm(list = ls())
 gc()
@@ -18,7 +15,7 @@ require_install(pck = packages)
 dt <- fread('data/weather_madrid_2017.csv',stringsAsFactors = F)
 
 # clean data
-dt[,date:=as.Date(date)]
+dt[,date:= as.Date(date)]
 dt[,c('icon','summary') := map(.SD,as.factor),.SDcols = c('icon','summary')]
 
 # filter out night hours
@@ -31,25 +28,29 @@ dt[,month := factor(month,levels = 1:12,labels = month.name)]
 # looking at the data
 dplyr::as_tibble(dt)
 str(dt)
+
 # quick descriptive analysis
 dt[,as.list(summary(apparentTemperature)), by=month][order(-month)]
 
 # exploratory plot
 ggplot(dt,aes(y = apparentTemperature, 
               x = factor(month))) + 
-  geom_boxplot() + labs(title = 'apparent temperature \nMadrid 2017')
+  geom_boxplot() + 
+  labs(title = 'apparent temperature \nMadrid 2017')
 
 
 # violin plot
 ggplot(dt,aes(y = apparentTemperature, 
               x = factor(month))) + 
-  geom_violin() + labs(title = 'apparent temperature \nMadrid 2017')
+  geom_violin() + 
+  labs(title = 'apparent temperature \nMadrid 2017')
 
 # violin plot with median
 ggplot(dt,aes(y = apparentTemperature, 
               x = factor(month))) + 
   geom_violin() + labs(title = 'apparent temperature \nMadrid 2017')+
-  stat_summary(fun.data="mean_sdl",  fun.args = list(mult=1), 
+  stat_summary(fun.data="mean_sdl",  
+               fun.args = list(mult=1), 
                geom="pointrange", color = "black")
 
 
