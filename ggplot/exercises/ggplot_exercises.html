@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<title>ggplot exercises</title>
+<!-- Material Design fonts -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="ggplot_exercises_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="ggplot_exercises_files/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="ggplot_exercises_files/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="ggplot_exercises_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="ggplot_exercises_files/navigation-1.1/tabsets.js"></script>
+<script src="ggplot_exercises_files/navigation-1.1/codefolding.js"></script>
+<link href="ggplot_exercises_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+<script src="ggplot_exercises_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+<link href="ggplot_exercises_files/bootstrap_material-0.1/bootstrap-material-design.min.css" rel="stylesheet" />
+<link href="ggplot_exercises_files/bootstrap_material-0.1/ripples.min.css" rel="stylesheet" />
+<script src="ggplot_exercises_files/bootstrap_material-0.1/material.min.js"></script>
+<script src="ggplot_exercises_files/bootstrap_material-0.1/ripples.min.js"></script>
+<link href="ggplot_exercises_files/material-0.1/material.css" rel="stylesheet" />
+<script src="ggplot_exercises_files/material-0.1/material.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+</style>
+
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+</head>
+
+<body>
+
+<div class="header-panel shadow z-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3">
+        <div id="header">
+    <h1 class="title">ggplot exercises</h1>
+                </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="container-fluid main-container">
+    <div class="row">
+      <nav class="col-xs-3 menu" id="toc">
+        <ul>
+        <li><a href="#datasets">DATASETS</a></li>
+        <li><a href="#aesthetics">AESTHETICS</a></li>
+        <li><a href="#geometrics">GEOMETRICS</a></li>
+        <li><a href="#facets">FACETS</a></li>
+        <li><a href="#coordinates">COORDINATES</a></li>
+        <li><a href="#themes">THEMES</a></li>
+        </ul>
+      </nav>
+     <div class="pages col-xs-9">
+     <div class="row">
+       <div class="col-xs-10">
+
+
+
+<div id="section" class="section level5">
+<h5></h5>
+</div>
+<div id="datasets" class="section level1">
+<h1>DATASETS</h1>
+<div id="mtcars" class="section level2">
+<h2>MTCARS<br />
+</h2>
+<hr />
+<p>The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).</p>
+<ul>
+<li>A data frame with 32 observations on 11 variables.
+<ul>
+<li>mpg Miles/(US) gallon</li>
+<li>cyl Number of cylinders</li>
+<li>mpg Miles/(US) gallon</li>
+<li>disp Displacement (cu.in.)</li>
+<li>hp Gross horsepower</li>
+<li>drat Rear axle ratio</li>
+<li>wt Weight (1000 lbs)</li>
+<li>qsec 1/4 mile time</li>
+<li>vs V/S</li>
+<li>am Transmission (0 = automatic, 1 = manual)</li>
+<li>gear Number of forward gears</li>
+<li>carb Number of carburetors</li>
+</ul></li>
+</ul>
+<p><br />
+** Tidy mtcars **</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># mtcars datasets is almost tidy we have just to coerce it into a</span>
+<span class="co"># data.table, setting keep.rownames=T to get the information stored in the</span>
+<span class="co"># rownames (the car name). But we we do that the default name is &#39;rn&#39;, so we</span>
+<span class="co"># have to change the&#39;rn&#39; to &#39;name&#39;</span>
+mtcars &lt;-<span class="st"> </span><span class="kw">data.table</span>(datasets<span class="op">::</span>mtcars, <span class="dt">keep.rownames =</span> T) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">setnames</span>(<span class="st">&quot;rn&quot;</span>, 
+    <span class="st">&quot;name&quot;</span>)</code></pre></div>
+</div>
+<div id="diamonds" class="section level2">
+<h2>DIAMONDS<br />
+</h2>
+<hr />
+<p>A dataset containing the prices and other attributes of almost 54,000 diamonds. The variables are as follows:</p>
+<ul>
+<li>A data frame with 53940 rows and 10 variables:
+<ul>
+<li>price price in US dollars</li>
+<li>carat weight of the diamond (0.2 - 5.01)</li>
+<li>cut quality of the cut (Fair, Good, Very Good, Premium, Ideal)</li>
+<li>color diamond colour, from J (worst) to D (best)</li>
+<li>clarity a measurement of how clear the diamond is (I1 (worst), SI1, SI2, VS1, VS2, VVS1, VVS2, IF (best))</li>
+<li>x length in mm (0 - 10.74)</li>
+<li>y width in mm (0 - 58.9)</li>
+<li>z depth in mm (0 - 31.8)</li>
+<li>depth total depth percentage = z / mean(x, y) = 2 * z / (x + y) (43 - 79)</li>
+<li>table width of top of diamond relative to widest point (43 - 95)</li>
+</ul></li>
+</ul>
+</div>
+<div id="toolthgrowh" class="section level2">
+<h2>TOOLTHGROWH<br />
+</h2>
+<hr />
+<p><strong>The Effect of Vitamin C on Tooth Growth in Guinea Pigs</strong> The response is the length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three dose levels of vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, (orange juice or ascorbic acid (a form of vitamin C and coded as VC).</p>
+<ul>
+<li>A data frame with 60 rows and 3 variables:
+<ul>
+<li>len (numeric) Tooth lenght</li>
+<li>supp (factor) Supplement type (VC or OJ).</li>
+<li>dose (numeric) Dose in milligrams/day</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="aesthetics" class="section level1">
+<h1>AESTHETICS</h1>
+<div id="aesthetics-vs-attributes" class="section level2">
+<h2>AESTHETICS VS ATTRIBUTES</h2>
+<div id="attributes-are-used-to-change-the-way-something-look-shapecoloralphaetc." class="section level4">
+<h4>Attributes are used to change the way something look (shape,color,alpha,etc).</h4>
+</div>
+<div id="aesthetics-are-used-to-map-variables-into-attribues." class="section level4">
+<h4>Aesthetics are used to map variables into attribues.</h4>
+</div>
+<div id="plot-this-graph" class="section level4">
+<h4>1. Plot this graph</h4>
+<div id="use-mtcars-dataset.-map-wt-to-x-and-mpg-to-y-set-the-aesthetics-in-the-ggplot-function-not-in-the-geometric-function" class="section level6">
+<h6>Use mtcars dataset. Map wt to x and mpg to y (set the aesthetics in the ggplot function, not in the geometric function )</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+</div>
+</div>
+<div id="increase-the-size-of-points" class="section level4">
+<h4>2. Increase the size of points</h4>
+<div id="copy-and-paste-the-ggplot-code-and-set-the-size-to-5" class="section level6">
+<h6>(copy and paste the ggplot code and set the size to 5)</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-4-1.png" width="576" /></p>
+</div>
+</div>
+<div id="change-the-color-of-points" class="section level4">
+<h4>3. Change the color of points</h4>
+<div id="copy-and-paste-the-ggplot-code-and-set-the-color-to-hotpink" class="section level6">
+<h6>(copy and paste the ggplot code and set the color to ‘hotpink’)</h6>
+</div>
+<div id="theres-an-immense-amount-of-colors-for-you-to-choose-click-to-see-all-of-them-r-colors" class="section level6">
+<h6>there’s an immense amount of colors for you to choose , click to see all of them <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">r colors</a></h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-5-1.png" width="576" /></p>
+</div>
+</div>
+<div id="up-to-know-we-have-changed-attributes-of-the-plot." class="section level4">
+<h4>4. Up to know we have changed attributes of the plot.</h4>
+<div id="now-we-are-going-to-add-a-new-dimension-to-the-plot.-right-now-the-plot-has-two-dimension-mpg-and-wt." class="section level5">
+<h5>Now we are going to add a new dimension to the plot. Right now the plot has two dimension (mpg and wt).</h5>
+</div>
+<div id="to-add-a-new-dimension-or-better-said-a-new-aesthetic-map-the-variable-gear-to-the-attribute-color" class="section level5">
+<h5>To add a new dimension, or better said, a new aesthetic, map the variable gear to the attribute color</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-6-1.png" width="576" /></p>
+</div>
+</div>
+</div>
+<div id="categorical-aesthetics" class="section level2">
+<h2>CATEGORICAL AESTHETICS</h2>
+<div id="categorical-aesthetics.-force-the-new-aesthetic-to-be-a-categorical-variable-a-factor." class="section level4">
+<h4>5. CATEGORICAL AESTHETICS. Force the new aesthetic to be a categorical variable, a factor.</h4>
+<div id="to-do-so-use-the-function-factor-when-setting-the-color-aesthetic" class="section level5">
+<h5>To do so, use the function ‘factor’ when setting the color aesthetic</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+</div>
+</div>
+</div>
+<div id="shared-aesthetics-vs-geom-specific-aesthetics" class="section level2">
+<h2>SHARED AESTHETICS VS GEOM-SPECIFIC AESTHETICS</h2>
+<div id="add-a-new-geometric-to-plot-a-loess-model-sharing-all-the-aesthetics-set" class="section level4">
+<h4>6. Add a new geometric to plot a loess model sharing all the aesthetics set</h4>
+<div id="use-the-geom_smooth-function" class="section level5">
+<h5>use the geom_smooth function</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
+</div>
+</div>
+<div id="geom-specific-aesthetic" class="section level4">
+<h4>7. Geom-specific aesthetic</h4>
+<div id="as-we-can-see-in-the-plot-above-we-have-made-a-model-for-each-year-and-the-size-of-the-line-is-so-big." class="section level5">
+<h5>As we can see in the plot above We have made a model for each year, and the size of the line is so big.</h5>
+</div>
+<div id="this-is-because-all-the-aesthetics-set-are-shared-aesthetics." class="section level5">
+<h5>This is because all the aesthetics set are shared aesthetics.</h5>
+</div>
+<div id="so-now-keep-x-and-y-as-shared-aesthetics-but-make-size-and-color-geom-specific-aesthetics-which-only-applies-to-the-scatter-plot." class="section level5">
+<h5>So now, keep x and y as shared aesthetics but make size and color geom-specific aesthetics which only applies to the scatter plot.</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-his-graph" class="section level4">
+<h4>8. Plot his graph</h4>
+<div id="use-mtcars-dataset.-map-cyl-to-x-and-hp-to-y-set-the-aesthetics-in-the-ggplot-function-not-in-the-geometric-function" class="section level5">
+<h5>Use mtcars dataset. Map cyl to x and hp to y (set the aesthetics in the ggplot function, not in the geometric function )</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-10-1.png" width="576" /></p>
+</div>
+</div>
+<div id="aesthetics-and-attributes" class="section level4">
+<h4>9. Aesthetics and attributes</h4>
+<div id="add-a-geom-specific-aesthetic-to-map-the-variable-gear-with-the-attribute-color." class="section level5">
+<h5>Add a geom-specific aesthetic to map the variable gear with the attribute color.</h5>
+</div>
+<div id="and-add-also-the-attribute-size.-set-size-3" class="section level5">
+<h5>And add also the attribute size. Set size = 3</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-11-1.png" width="576" /></p>
+</div>
+</div>
+<div id="jitter-position" class="section level4">
+<h4>10.Jitter position</h4>
+<div id="set-the-position-argument-to-jitter" class="section level5">
+<h5>Set the position argument to ‘jitter’</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-12-1.png" width="576" /></p>
+</div>
+</div>
+<div id="change-the-default-arguments-of-jitter-position" class="section level4">
+<h4>11. Change the default arguments of jitter position</h4>
+<div id="to-do-so-you-need-to-use-the-jitter-position-or-the-jitter-geom" class="section level5">
+<h5>To do so you need to use the jitter position (or the jitter geom)</h5>
+</div>
+<div id="set-height-0-and-width-0.2" class="section level5">
+<h5>set height = 0 and width =0.2</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-13-1.png" width="576" /> #### 12. Plot this graph ##### Use mtcars dataset. Map gear to x and use bar geometric <img src="ggplot_exercises_files/figure-html/unnamed-chunk-14-1.png" width="576" /></p>
+</div>
+</div>
+<div id="add-a-new-aesthetic." class="section level4">
+<h4>13. Add a new aesthetic.</h4>
+<div id="map-carb-to-fill-aesthetic" class="section level5">
+<h5>Map carb to fill aesthetic</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-15-1.png" width="576" /></p>
+</div>
+</div>
+<div id="factor-aesthetic" class="section level4">
+<h4>14. Factor aesthetic</h4>
+<div id="we-need-to-force-carb-to-be-a-factor-for-the-aesthetic-to-be-visible" class="section level5">
+<h5>We need to force carb to be a factor for the aesthetic to be visible</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-16-1.png" width="576" /></p>
+</div>
+</div>
+<div id="check-default-position" class="section level4">
+<h4>15. Check default position</h4>
+<div id="set-position-argument-to-stack-to-check-that-nothing-changes" class="section level5">
+<h5>Set position argument to ‘stack’ to check that nothing changes</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-17-1.png" width="576" /></p>
+</div>
+</div>
+<div id="fill-position" class="section level4">
+<h4>16. Fill position</h4>
+<div id="create-a-100-stacked-barplot-by-changing-the-position-to-fill" class="section level5">
+<h5>Create a 100% stacked barplot by changing the position to ‘fill’</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-18-1.png" width="576" /></p>
+</div>
+</div>
+<div id="dodge-position" class="section level4">
+<h4>17. Dodge position</h4>
+<div id="preserves-the-vertical-position-of-an-geom-while-adjusting-the-horizontal-position." class="section level5">
+<h5>Preserves the vertical position of an geom while adjusting the horizontal position.</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-19-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-this-graph-1" class="section level4">
+<h4>18. Plot this graph</h4>
+<div id="use-mtcars-dataset.-map-disp-to-x-mpg-to-y.-you-have-to-use-two-geoms" class="section level5">
+<h5>Use mtcars dataset. Map disp to x mpg to y. You have to use two geoms</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-20-1.png" width="576" /></p>
+</div>
+</div>
+<div id="attributes-and-aesthetics" class="section level4">
+<h4>19. Attributes and Aesthetics</h4>
+<div id="aesthethics.-use-the-color-aesthetic-to-add-the-variable-gear-to-the-plot" class="section level5">
+<h5>Aesthethics. Use the color aesthetic to add the variable gear to the plot</h5>
+</div>
+<div id="attributes-change-the-color-of-the-line-to-black-and-increase-the-size-of-points-to-3" class="section level5">
+<h5>Attributes Change the color of the line to black and increase the size of points to 3</h5>
+</div>
+<div id="remove-standard-error-shaded-area-hint-geom_smooth-has-a-parameter-called-se" class="section level5">
+<h5>Remove standard error (shaded area) (hint geom_smooth has a parameter called se)</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-21-1.png" width="576" /></p>
+</div>
+</div>
+<div id="scales" class="section level4">
+<h4>20. Scales</h4>
+<div id="change-the-color-scale-manually.-coerce-the-colors-to-be-red-green-and-blueto-3" class="section level5">
+<h5>Change the color scale manually. Coerce the colors to be ???red???, ???green??? and ???blue???to 3</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-22-1.png" width="576" /></p>
+</div>
+</div>
+<div id="add-a-new-aesthetic" class="section level4">
+<h4>21. Add a new aesthetic</h4>
+<div id="use-the-size-aesthetic-to-add-the-categorical-variable-carb" class="section level5">
+<h5>Use the size aesthetic to add the categorical variable carb</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-23-1.png" width="576" /></p>
+</div>
+</div>
+<div id="highlight-the-difference-of-carb" class="section level4">
+<h4>22. Highlight the difference of carb</h4>
+<div id="change-the-range-of-the-size-scale-set-it-to-1-10" class="section level5">
+<h5>Change the range of the size scale, set it to 1-10</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-24-1.png" width="576" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="geometrics" class="section level1">
+<h1>GEOMETRICS</h1>
+<div id="plot-this-graph-2" class="section level4">
+<h4>23. Plot this graph</h4>
+<div id="use-diamonds-dataset.-map-price-to-x-and-create-something-like-and-histogram-but-plotting-an-area." class="section level5">
+<h5>Use diamonds dataset. Map price to x and create something like and histogram but plotting an area.</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-25-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-a-density-of-the-price" class="section level4">
+<h4>24. Plot a density of the price</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-26-1.png" width="576" /> #### 25. Plot the count instead of the density</p>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-27-1.png" width="576" /></p>
+</div>
+<div id="plot-the-count-but-using-the-triangular-kernel" class="section level4">
+<h4>26. Plot the count but using the triangular kernel</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-28-1.png" width="576" /></p>
+</div>
+<div id="use-a-dotplot" class="section level4">
+<h4>27.Use a dotplot</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-29-1.png" width="576" /></p>
+</div>
+<div id="we-must-reduce-the-dotsize.-set-the-attribute-dotsize-100nrowdiamonds" class="section level4">
+<h4>28.We must reduce the dotsize. Set the attribute dotsize = 100/nrow(diamonds)</h4>
+<div id="when-the-dataset-is-so-big-the-dotplot-do-not-add-information" class="section level6">
+<h6>When the dataset is so big, the dotplot do not add information</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-30-1.png" width="576" /></p>
+</div>
+</div>
+<div id="in-this-case-we-prefer-to-use-a-simple-histogram" class="section level4">
+<h4>29.In this case we prefer to use a simple histogram</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-31-1.png" width="576" /></p>
+</div>
+<div id="or-a-freqpoly-an-histogram-plotted-using-a-line" class="section level4">
+<h4>30.Or a freqpoly (an histogram plotted using a line)</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-32-1.png" width="576" /></p>
+</div>
+<div id="plot-the-count-of-each-color-using-diamonds-dataset" class="section level4">
+<h4>31. Plot the count of each color using diamonds dataset</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-33-1.png" width="576" /> #### 32. Add the aesthetic fill to map the variable color <img src="ggplot_exercises_files/figure-html/unnamed-chunk-34-1.png" width="576" /></p>
+</div>
+<div id="create-a-100-stacked-bar-changing-the-default-position" class="section level4">
+<h4>33. Create a 100% stacked bar changing the default position</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-35-1.png" width="576" /></p>
+</div>
+<div id="plot-this-famouse-graph." class="section level4">
+<h4>34. Plot this famouse graph.</h4>
+<div id="use-the-diamonds-dataset-and-make-a-scatter-plot-of-price-vs-carat" class="section level5">
+<h5>Use the diamonds dataset and make a scatter plot of price vs carat</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-36-1.png" width="576" /></p>
+</div>
+</div>
+<div id="limit-the-x-axis-to-3-using-a-scale-function" class="section level4">
+<h4>35. Limit the x axis to 3 using a scale function</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-37-1.png" width="576" /> #### 36. Use jitter instead of points and set height = 0.5,width = 0.5. ###### You must also set the attribute alpha to 0.1 to avoid overlapping <img src="ggplot_exercises_files/figure-html/unnamed-chunk-38-1.png" width="576" /></p>
+</div>
+<div id="add-quantiles-2550-and-75" class="section level4">
+<h4>37. Add quantiles 25%,50% and 75%</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-39-1.png" width="576" /></p>
+</div>
+<div id="limit-the-y-axis-by-using-the-maximum-price-in-the-diamonds-dataset." class="section level4">
+<h4>38. Limit the y axis by using the maximum price in the diamonds dataset.</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-40-1.png" width="576" /></p>
+</div>
+<div id="visualize-the-distribution-of-price-and-carat-using-a-rug-plot-set-alpha-0.01-to-avoid-overlapping" class="section level4">
+<h4>39.Visualize the distribution of price and carat using a rug plot (set alpha = 0.01 to avoid overlapping)</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-41-1.png" width="576" /></p>
+</div>
+<div id="add-a-smooth-model-to-see-the-relation-between-price-and-carat" class="section level4">
+<h4>40. Add a smooth model to see the relation between price and carat</h4>
+<div id="set-attribute-color-red-and-zie-2" class="section level5">
+<h5>Set attribute color = ‘red’ and zie = 2</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-42-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-thi-graph-based-on-the-previously-created-data.frame" class="section level4">
+<h4>41. Plot thi graph (based on the previously created data.frame)</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-43-1.png" width="576" /></p>
+</div>
+<div id="add-the-color-aesthetic" class="section level4">
+<h4>42. Add the color aesthetic</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-44-1.png" width="576" /></p>
+</div>
+<div id="we-can-get-more-information-without-creating-an-auxiliar-dataset." class="section level4">
+<h4>43. We can get more information without creating an auxiliar dataset.</h4>
+<div id="plot-this-graph-using-the-diamonds-dataset-and-a-boxplot-geometric" class="section level6">
+<h6>Plot this graph using the diamonds dataset and a boxplot geometric</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-45-1.png" width="576" /></p>
+</div>
+</div>
+<div id="based-on-the-following-dataset.-create-a-dotplot" class="section level4">
+<h4>44. Based on the following dataset. Create a dotplot</h4>
+<div id="remember-that-the-argument-binaxis-must-be-set-to-y" class="section level6">
+<h6>Remember that the argument binaxis must be set to ‘y’</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-46-1.png" width="576" /></p>
+</div>
+</div>
+<div id="to-create-a-plot-with-the-same-information-we-dont-need-to-create-an-auxliar-dataset" class="section level4">
+<h4>45. To create a plot with the same information, we don’t need to create an auxliar dataset</h4>
+<div id="plot-this-graph-using-the-diamonds-dataset-and-a-violin-geometric" class="section level6">
+<h6>Plot this graph using the diamonds dataset and a violin geometric</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-47-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-this-graph.-as-you-can-see-it-has-been-made-using-two-categorical-variables" class="section level4">
+<h4>46. Plot this graph. As you can see, it has been made using two categorical variables</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-48-1.png" width="576" /></p>
+</div>
+<div id="add-two-new-aesthetics" class="section level4">
+<h4>47. Add two new aesthetics</h4>
+<div id="map-the-carat-variable-in-the-alpha-attribute-and-the-variable-price-in-the-color-attribute" class="section level6">
+<h6>Map the carat variable in the alpha attribute and the variable price in the color attribute</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-49-1.png" width="576" /></p>
+</div>
+</div>
+<div id="change-the-range-of-the-alpha-aesthetic-using-a-scale-function" class="section level4">
+<h4>48. Change the range of the alpha aesthetic using a scale function</h4>
+<div id="change-the-default-theme-use-theme_minimal" class="section level6">
+<h6>Change the default theme, use theme_minimal</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-50-1.png" width="576" /></p>
+</div>
+</div>
+<div id="plot-this-graph." class="section level4">
+<h4>49. Plot this graph.</h4>
+<div id="use-diamonds-dataset-map-carat-to-x-and-price-to-y-and-use-hex-geometric-set-alpha-to-0.8" class="section level6">
+<h6>Use diamonds dataset, map carat to x and price to y and use hex geometric (set alpha to 0.8)</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-51-1.png" width="576" /></p>
+</div>
+</div>
+<div id="add-a-contours." class="section level4">
+<h4>50. Add a contours.</h4>
+<div id="set-color-red-to-make-it-more-visible" class="section level6">
+<h6>set color = ‘red’ to make it more visible</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-52-1.png" width="576" /></p>
+</div>
+</div>
+<div id="change-geom_text-with-geom_point" class="section level4">
+<h4>51. Change geom_text with geom_point</h4>
+<div id="set-alpha-to-0.005-to-be-ableo-to-see-somthing" class="section level6">
+<h6>set alpha to 0.005 to be ableo to see somthing</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-53-1.png" width="576" /></p>
+</div>
+</div>
+<div id="using-the-following-dataset.-plot-a-line-to-know-the-trend-of-the-unenmployment" class="section level4">
+<h4>52. Using the following dataset. Plot a line to know the trend of the unenmployment</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-54-1.png" width="576" /></p>
+</div>
+<div id="plot-an-area-instead" class="section level4">
+<h4>53. Plot an area instead</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-55-1.png" width="576" /></p>
+</div>
+<div id="plot-an-step-line" class="section level4">
+<h4>54. Plot an step line</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-56-1.png" width="576" /></p>
+</div>
+<div id="create-the-model-an-plot-a-crossbar" class="section level4">
+<h4>55. Create the model an plot a crossbar</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-57-1.png" width="576" /></p>
+</div>
+<div id="plot-this-graph-3" class="section level4">
+<h4>56. Plot this graph</h4>
+<div id="use-geom-bar-stat-identity-and-add-an-error-bar" class="section level5">
+<h5>Use geom bar (stat =‘identity’) and add an error bar</h5>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-58-1.png" width="576" /></p>
+</div>
+</div>
+<div id="use-a-point-range-instead-of-an-error-bar" class="section level4">
+<h4>57. Use a point-range instead of an error bar</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-59-1.png" width="576" /></p>
+</div>
+</div>
+<div id="facets" class="section level1">
+<h1>FACETS</h1>
+<div id="plot-this-graph-4" class="section level4">
+<h4>58. Plot this graph</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-60-1.png" width="576" /></p>
+</div>
+<div id="split-the-plot-using-the-categorical-variable-color" class="section level4">
+<h4>59. Split the plot using the categorical variable color</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-61-1.png" width="576" /></p>
+</div>
+<div id="create-a-grid-of-plot-using-the-variables-color-in-columns-and-cut-in-rows." class="section level4">
+<h4>60. Create a grid of plot using the variables color in columns and cut in rows.</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-62-1.png" width="576" /></p>
+</div>
+<div id="create-a-grid-of-plot-using-the-variables-color-in-columns-and-cut-in-rows.-1" class="section level4">
+<h4>61. Create a grid of plot using the variables color in columns and cut in rows.</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-63-1.png" width="576" /></p>
+</div>
+</div>
+<div id="coordinates" class="section level1">
+<h1>COORDINATES</h1>
+<div id="plot-this-graph.-1" class="section level4">
+<h4>62. Plot this graph.</h4>
+<div id="hints-theta-y-x" class="section level6">
+<h6>Hints theta = ‘y’, x=’’</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-64-1.png" width="576" /></p>
+</div>
+</div>
+<div id="stat-transformation-using-coordinate" class="section level4">
+<h4>63. Stat transformation using coordinate</h4>
+<div id="sqrt-in-x-and-log10-in-price" class="section level6">
+<h6>sqrt in x and log10 in price</h6>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-65-1.png" width="576" /></p>
+</div>
+</div>
+<div id="flipped-violins" class="section level4">
+<h4>64. Flipped violins</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-66-1.png" width="576" /></p>
+</div>
+</div>
+<div id="themes" class="section level1">
+<h1>THEMES</h1>
+<div id="based-on-this-plot.-add-a-theme-to-make-it-look-more-classic." class="section level4">
+<h4>65. Based on this plot. Add a theme to make it look more classic.</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-67-1.png" width="576" /></p>
+</div>
+<div id="add-the-title-tooth-length-by-dose-and-subtitle-vitamin-c-complex" class="section level4">
+<h4>66. Add the title “Tooth Length by Dose” and Subtitle “Vitamin C Complex”</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-68-1.png" width="576" /></p>
+</div>
+<div id="add-a-new-label-for-x-axis-length-a-new-one-for-y-axis-dose-mg-and-a-new-title-for-the-legend-dose" class="section level4">
+<h4>67. Add a new Label for X Axis “Length”, a new one for Y Axis “Dose (mg)”, and a new title for the legend “Dose”</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-69-1.png" width="576" /></p>
+</div>
+<div id="plot-the-title-and-subtitle-in-the-center" class="section level4">
+<h4>68. Plot the title and subtitle in the center</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-70-1.png" width="576" /></p>
+</div>
+<div id="increase-the-base-size-and-set-the-base-family-serif" class="section level4">
+<h4>69. Increase the base size and set the base family = ‘serif’</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-71-1.png" width="576" /></p>
+</div>
+<div id="change-the-aspect-ratio-of-the-coordinate-system.-fix-the-ratio-to-115" class="section level4">
+<h4>70. Change the aspect ratio of the coordinate system. Fix the ratio to 1/15</h4>
+<p><img src="ggplot_exercises_files/figure-html/unnamed-chunk-72-1.png" width="576" /></p>
+</div>
+</div>
+
+    </div>
+    <div class="col-xs-2">
+        </div>
+  </div>
+  </div>
+  </div>
+  <div class="row">
+    </div>
+  </div>
+
+<script>
+$(document).ready(function () {
+  // add bootstrap table styles to pandoc tables
+  $('tr.header').parent('thead').parent('table').addClass('table table-striped table-hover');
+
+    var images = $('.pages img');
+  images.filter(function() {
+      if ($(this).parent().attr("class") == "figure") {
+          return(false)
+      } else {
+          return(true);
+      }
+  }).wrap("<div class='figure'></div>");
+  images.addClass("image-thumb").wrap("<div class='panel-body'></div>");
+  $('.figure p.caption').wrap("<div class='panel-footer'></div>");
+  $('.figure').addClass('panel panel-default');
+  
+    $('.pages img')
+ 	  .addClass("image-lb");
+  $('.pages').magnificPopup({
+	      type:'image',
+	      closeOnContentClick: false,
+	      delegate: 'img',
+	      gallery: {enabled: true },
+          removalDelay: 500,
+          callbacks: {
+              beforeOpen: function() {
+                // just a hack that adds mfp-anim class to markup
+                this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+              }
+          },
+          mainClass: 'mfp-move-from-top',
+	      image: {
+	        verticalFit: true,
+            titleSrc: 'alt'
+	      }
+ 	    });
+ 	
+    window.page = window.location.hash;
+    if (window.page != "") {
+      $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+    }
+
+    /* init material bootstrap js */
+    $.material.init();
+});
+</script>
+
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
